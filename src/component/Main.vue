@@ -89,15 +89,14 @@ export default {
     const errors = ref("");
 
     const configuration = new Configuration({
-      apiKey: import.meta.env.VITE_APP,
+      apiKey: "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",
     });
 
     const openai = new OpenAIApi(configuration);
 
     const generateImage = async () => {
-
       isLoading.value = true;
-      
+
       if (!state.input || !state.number || !state.size) {
         isLoading.value = false;
         errors.value = "Please ensure all fields are filled";
@@ -117,11 +116,12 @@ export default {
         } catch (error) {
           errors.value =
             "Oops... An error occurred while generating the images, please try again.";
-          console.log("error don sup o bolaji");
           isLoading.value = false;
         }
       }
     };
+
+    console.log("vite", import.meta.env.VITE_APP);
 
     return {
       state,
